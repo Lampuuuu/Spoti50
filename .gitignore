@@ -1,0 +1,6 @@
+*.cache
+/garbage
+/examples
+/__pycache__
+/.flask_session
+/.spotify_caches

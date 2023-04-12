@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <div style="padding: 1em;">
+    <h3 style="text-align: center; padding: 1em;">This is the Search page!</h3>
+    <div>
+    <h5 style="padding: 1em;">Here you can scower spotify for artist, albums or songs</h5>
+    </div>
+
+    <form action="/search" method="POST">
+        <div class="form-gorup">
+            <input class="form-control" type="text" placeholder="your search here" required name="query">
+        </div>
+        <div class="form-gorup">
+            <select class="form-control" name="type">
+                <option value="artist">artist</option>
+                <option value="track">track</option>
+                <option value="album">album</option>
+            </select>
+        </div>
+        <div class="form-gorup">
+            <input class="form-control" type="number" min="1" max="50"  placeholder="search results(1-50)" name="limit">
+        </div>
+        <div class="form-gorup">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+{% endblock %}

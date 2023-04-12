@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block main %}
+    <h3>You searched for {{ limit }} {{ type }}(s) with the query "{{ query }}"</h3>
+    <h3>Here are your results:</h3>
+    <div style="padding: 1em">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="th" scope="col">Image (clickable)</th>
+                <th class="th" scope="col">Name</th>
+                {% if withartists %}
+                <th class="th" scope="col">Artist(s)</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in searchresults %}
+            <tr>
+                <td class="td">
+                    <a href="{{ item['link'] }}" target="_blank" rel="external norefer noopener">
+                        <img alt="{{ item['link'] }}" class="border" width="100" src="{{ item['img'] }}">
+                    </a>
+                </td>
+                <td class="td">{{ item["name"] }}</td>
+                {% if withartists %}
+                <td class="td">{{ ", ".join(item["artists"]) }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+
+nav .navbar-brand
+{
+    font-size: xx-large;
+    background-color: darkslategrey;
+}
+
+nav .navbar-brand .green
+{
+    color: greenyellow;
+    background-color: darkslategray;
+}
+
+nav .navbar-brand .white
+{
+    color: rgba(199, 17, 123, 0.877);
+    background-color: darkslategrey;
+}
+
+main
+{
+    background-color: darkslategray;
+    color: rgb(200, 204, 207);
+
+    overflow-x: auto;
+
+    text-align: center;
+}
+
+main .form-gorup
+{
+    padding: 10px;
+}
+
+
+
+main .form-control
+{
+    display: inline-block;
+    width: 18em;
+    padding-left: 15px;
+}
+body
+{
+    background-color:darkslategray;
+}
+
+main .th
+{
+    font-size: larger;
+    vertical-align: middle;
+}
+
+main .td
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+main .resultheader
+{
+    text-align: left
+}
+
+main .alert
+{
+    background-color:rgb(217, 219, 56);
+    color: black;
+    text-align: center;
+    margin-left: 150px;
+    margin-right: 150px;
+}

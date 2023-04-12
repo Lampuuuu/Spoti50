@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://davidstutz.github.io/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="http://davidstutz.github.io/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" type="text/css" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#ddlCountry').multiselect({
+                includeSelectAllOption: true,
+                enableCaseInsensitiveFiltering: true,
+                enableFiltering: true,
+                maxHeight: 200
+            });
+        });
+
+        function GetSelectedCountries() {
+            var selectedCountries = "";
+            $("#ddlCountry option:selected").each(function () {
+                selectedCountries += "Country: " + $(this).text() + ", CountryId: " + $(this).val() + "\n";
+            });
+            if (selectedCountries) {
+                alert(selectedCountries);
+            }
+            else {
+                alert("Please select at least one country");
+            };
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="margin-left: 500px;" class="form-gorup">
+            <select class="form-control" id="ddlCountry" multiple="multiple">
+                <option value="1">India</option>
+                <option value="2">Australia</option>
+                <option value="3">America</option>
+                <option value="4">China</option>
+                <option value="5">Japan</option>
+                <option value="6">Russia</option>
+                <option value="7">England</option>
+                <option value="8">Korea</option>
+                <option value="9">New Zealand</option>
+                <option value="10">South Africa</option>
+                <option value="11">West Indies</option>
+                <option value="12">Brazil</option>
+                <option value="13">Holland</option>
+                <option value="14">Bahrain</option>
+                <option value="15">Canada</option>
+                <option value="16">Colombia</option>
+                <option value="17">Egypt</option>
+                <option value="18">France</option>
+                <option value="19">Germany</option>
+                <option value="20">United Arab Emirates</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;<input type="button" id="btnSubmit" onclick="GetSelectedCountries();" value="Submit" />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Recommendations
+{% endblock %}
+
+{% block main %}
+<div style="padding: 1em;">
+    <h2>You wanted {{ limit }} recommendations based on:</h2>
+    {% if artists %}
+    <h5>artist(s): {{ artists }}</h5>
+    {% endif %}
+    {% if genre %}
+    <h5>genre: {{ genre }}</h5>
+    {% endif %}
+    {% if tracks %}
+    <h5>tracks: {{ tracks }}</h5>
+    {% endif %}
+</div>
+<h3>Here are your results!</h3>
+
+<div style="padding: 1em;">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="th" scope="col">Title</th>
+            <th class="th" scope="col">Artist(s)</th>
+            <th class="th" scope="col">Image (clickable)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for track in recommendations %}
+        <tr>
+            <td class="td">{{ track["title"] }}</td>
+            <td class="td">{{ ", ".join(track["artists"]) }}</td>
+            <td class="td"><a href='{{ track["link"] }}' target="_blank" rel="external norefer noopener">
+                <img class="border" width="100" src="{{ track['img'] }}">
+            </a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+{% endblock %}

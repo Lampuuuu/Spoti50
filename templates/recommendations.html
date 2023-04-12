@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recommendations
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+{% block main %}
+    <div style="padding: 1em;">
+        <h3 style="text-align: center; padding: 1em;">This is the Recommendations page!</h3>
+        <div>
+        <h5 class="resultheader">Here you can look for spotifiy recommendations based on inputs you given (artist, genre or songs)</h5>
+        <h5 class="resultheader">This algorithm is not all that smart and will just grab the first result (artist or song) from the top of the search pile</h5>
+        <h5 class="resultheader">So if you want to check beforehand if what you input is actually what is searched with, please use the "Search" function first</h5>
+        <div class="alert">
+        <h5 class="resultheader" style="text-align: center;">you can input a maximum of 5 total values below (artists + genres + tracks)</h5>
+        </div>
+        </div>
+    </div>
+    <form action="/recommendations" method="POST" >
+        <div class="form-gorup">
+            <input class="form-control" type="text" placeholder="artist1, artist2, artist3" name="artists">
+        </div>
+        <div class="form-gorup">
+            <select class="form-control" id="genreselect"  name="genre">
+                <option disabled="" selected="" value="">Genre</option>
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>   
+        </div>
+        <div class="form-gorup">
+            <input class="form-control" type="text" placeholder="track1, track2, track3" name="tracks">
+        </div>
+        <div class="form-gorup">
+            <input class="form-control" type="number" min="1" max="100" placeholder="recommendations(1-100)" name="limit">
+        </div>
+        <div class="form-gorup">
+            <button class="btn btn-primary" type="submit">Find recommendations</button>
+        </div>
+    </form>
+    
+
+{% endblock %}
